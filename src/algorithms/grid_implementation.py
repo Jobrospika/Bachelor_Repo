@@ -84,6 +84,9 @@ class SafeOptGrid(SafeBO):
         self.calculate_S()
         self.calculate_G()
         self.calculate_M()
+        print(f"  [n_obs={self.X.shape[0]}] safe_index={self.safe_index.shape[0]}  "
+              f"G={0 if self.G is None else self.G.shape[0]}  "
+              f"M={0 if self.M is None else self.M.shape[0]}")
         x_next = self.optimize_acquisition_function()
         return x_next
 

@@ -91,29 +91,53 @@ class LosGPUCB(SafeBO):
     
     def optimize(self):
         self.update_circles()
-        # Parallelize the computation of the acquisition function
-        candidates = Parallel(n_jobs=10)(delayed(self.process)(i, "UCB") for i in range(len(self.X)))
-    
-        candidates = torch.cat(candidates).squeeze(0)
-        
-        # Initialize a filter with all True values
-        valid_candidates = torch.ones(candidates.size(0), dtype=torch.bool)
 
+        # --- FIX: exclude anchors with invalid (non-positive) radius ---
+        valid_anchor_idx = [i for i in range(len(self.X)) if self.radius[i] > 0]
+        if len(valid_anchor_idx) == 0:
+            raise RuntimeError(
+                "No valid (positive-radius) safe anchors remain — every observed "
+                "point is at or below the safety margin (Y - E - h <= 0). "
+                "Cannot generate further safe candidates."
+            )
+        # --- end fix ---
+
+        results = Parallel(n_jobs=10)(delayed(self.process)(i, "UCB") for i in valid_anchor_idx)
+        candidates = torch.cat([r[0] for r in results]).squeeze(0)
+        escape_diags = [r[1] for r in results]
+
+        valid_candidates = torch.ones(candidates.size(0), dtype=torch.bool)
         if self.domain_size == 1:
             lower_bound, upper_bound = self.bounds
             valid_candidates &= (candidates >= lower_bound) & (candidates <= upper_bound)
         else:
-            # Update the filter for each dimension
             for dim in range(self.domain_size):
                 lower_bound, upper_bound = self.bounds[dim]
                 valid_candidates &= (candidates[:, dim] >= lower_bound) & (candidates[:, dim] <= upper_bound)
-        
+
         acqf = UpperConfidenceBound(self.gp_model, beta=2)
-        
-        # Apply the filter to make sure result is inside bounds
-        candidates = candidates[valid_candidates]
-        opt = acqf(candidates).argmax(dim=0)
-        x_next = candidates[opt]
+        candidates_filtered = candidates[valid_candidates]
+        opt = acqf(candidates_filtered).argmax(dim=0)
+        x_next = candidates_filtered[opt]
+
+        if not hasattr(self, "_escape_log"):
+            self._escape_log = []
+        self._escape_log.extend(escape_diags)
+
+        dists_to_all_anchors = (self.center - x_next).norm(dim=-1)
+        nearest_anchor = dists_to_all_anchors.argmin().item()
+        nearest_dist = dists_to_all_anchors[nearest_anchor].item()
+        nearest_radius = self.radius[nearest_anchor].item()
+        if not hasattr(self, "_selected_log"):
+            self._selected_log = []
+        self._selected_log.append({
+            "x_next": x_next.tolist(),
+            "nearest_anchor": nearest_anchor,
+            "dist_to_nearest_anchor": nearest_dist,
+            "nearest_anchor_radius": nearest_radius,
+            "escaped_nearest_ball": nearest_dist > nearest_radius + 1e-6,
+        })
+
         return x_next
     
     def calculate_regret(self, function_config, observe_data):
@@ -128,9 +152,18 @@ class LosGPUCB(SafeBO):
             torch.Tensor: The regret of the current best solution.
         """
         self.update_circles()
+
+        # --- FIX: same guard here ---
+        valid_anchor_idx = [i for i in range(len(self.X)) if self.radius[i] > 0]
+        if len(valid_anchor_idx) == 0:
+            raise RuntimeError(
+                "No valid (positive-radius) safe anchors remain — cannot compute regret."
+            )
+        # --- end fix ---
+
         # Parallelize the computation of the acquisition function
-        candidates = Parallel(n_jobs=10)(delayed(self.process)(i, "Mean") for i in range(len(self.X)))
-        candidates = torch.cat(candidates).squeeze(0)
+        results = Parallel(n_jobs=10)(delayed(self.process)(i, "Mean") for i in valid_anchor_idx)
+        candidates = torch.cat([r[0] for r in results]).squeeze(0)
         acqf = Mean(self.gp_model)
         opt = acqf(candidates).argmax(dim=0)
         candidate = candidates[opt]
@@ -178,4 +211,17 @@ class LosGPUCB(SafeBO):
         )
 
         candidate = n_sphere_to_cartesian(candidate, radius, center).squeeze(1)
-        return candidate
+
+        # --- DIAGNOSTIC: does the mapped candidate actually respect its own ball? ---
+        dist = (candidate - center).norm(dim=-1)
+        escaped = dist > radius + 1e-6
+        diag = {
+            "anchor_idx": i,
+            "radius": radius.item(),
+            "max_dist": dist.max().item(),
+            "n_escaped": int(escaped.sum().item()),
+            "n_total": int(dist.shape[0]),
+        }
+        # --- end diagnostic ---
+
+        return candidate, diag

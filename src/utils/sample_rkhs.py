@@ -7,6 +7,7 @@ Created on Mon Sep 11 16:00:54 2023
 """
 
 import numpy as np
+import math
 
 # For now, numpy variant
 class PreRKHSfunction():
@@ -170,4 +171,4 @@ class PreRKHSfunctionGenerator():
 
 # ONB functions from Steinwart et al
 def se_bfunc_1d(x, n, gamma=1):
-    return np.sqrt(np.power(2,n)/(np.power(gamma, 2*n)*np.math.factorial(n))) * np.power(x, n) * np.exp(-x**2/gamma**2)
+    return np.sqrt(np.power(2,n)/(np.power(gamma, 2*n)*math.factorial(n))) * np.power(x, n) * np.exp(-x**2/gamma**2)

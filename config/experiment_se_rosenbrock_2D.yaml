@@ -1,5 +1,5 @@
 results_path: results
-experiment_name: se_gaussian_10D
+experiment_name: se_rosenbrock_2D
 losbo_config: ucb_constant
 kernel_config: se
-function_config: gaussian_10D
+function_config: rosenbrock_2D

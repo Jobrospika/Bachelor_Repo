@@ -1,0 +1,5 @@
+results_path: results
+experiment_name: matern_griewank_6D
+losbo_config: ucb_constant
+kernel_config: matern
+function_config: griewank_6d

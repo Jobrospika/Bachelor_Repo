@@ -1,0 +1,5 @@
+results_path: results
+experiment_name: matern_gaussian_10D
+losbo_config: ucb_constant
+kernel_config: matern
+function_config: gaussian_10D

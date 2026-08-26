@@ -1,0 +1,11 @@
+type: "styblinski_tang_4D"
+lipschitz_constant: 2.234081
+noise_lvl: 0.01
+domain_size: 4
+domain_bounds:
+  - [-5, 5]
+  - [-5, 5]
+  - [-5, 5]
+  - [-5, 5]
+safety_threshold: 0 # safety threshold
+optimum: 1.0

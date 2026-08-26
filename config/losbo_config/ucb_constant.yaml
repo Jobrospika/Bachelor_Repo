@@ -3,6 +3,6 @@ beta:
   type: "constant" # alternative "constant", "add-gp-ucb", "srinivas", "fiedler"
   value: 2
 initial_safe_points: 1
-E: 0.02
+E: 0.01
 max_iterations: 100
 acqf: "ucb" # alternative "maxvar", "ucb"

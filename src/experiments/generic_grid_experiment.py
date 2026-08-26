@@ -6,9 +6,10 @@ import sys
 import pandas as pd
 import yaml
 
+from algorithms.losboAdaptive import LosboAdaptive
 from src.utils.experiment_utils import seed_everything
 from src.experiments.testfunctions import observe_data 
-from src.gps.models import ExactGPSEModel, ExactGPMatern32Model
+from src.gps.models import ExactGPSEModel, ExactGPMatern32Model, ExactGPMatern52Model
 from src.algorithms.grid_implementation import SafeOptGrid, Losbo, RealBetaSafeOpt
 
 
@@ -79,6 +80,19 @@ def set_up_model(init_x, init_y, model_type, lengthscale):
             ard_num_dims=None,
             prior_mean=0,
         )
+    elif model_type == "matern52":
+        model = ExactGPMatern52Model(
+            init_x,
+            init_y,
+            lengthscale_constraint=None,
+            lengthscale_hyperprior=gpytorch.priors.NormalPrior(lengthscale, 1),
+            outputscale_constraint=None,
+            outputscale_hyperprior=gpytorch.priors.NormalPrior(1, 1),
+            noise_constraint=None,
+            noise_hyperprior=None,
+            ard_num_dims=None,
+            prior_mean=0,
+        )
     else:
         model = ExactGPSEModel(                                     # set up model it is not possible to set lengthscales and output scale directly, instead the mean of the hyper prior is used
             init_x,
@@ -111,6 +125,8 @@ def set_up_algorithm(algorithm, config, model):
         opt = SafeOptGrid(config=config, gp=model)
     elif algorithm == "losbo":
         opt = Losbo(config=config, gp=model)
+    elif algorithm == "losboadaptive":
+        opt = LosboAdaptive(config=config, gp=model)
     elif algorithm == "real_beta":
         beta_dict = config["beta_dict"]
         opt = RealBetaSafeOpt(config=config, gp=model, beta_config=beta_dict)
@@ -172,7 +188,7 @@ def run_loop(iterations, opt, function_info, df, plot=False):
         opt.update_gp()
         dict_optimization_steps = {"iteration": t+1, "x": x_next.item(), "y": y_next.item(), "pred_opt":observe_data(opt.get_current_best_mean_x().unsqueeze(0), function_info, noise_on=False).item()}
         # add dict to dataframe
-        df = df._append(dict_optimization_steps, ignore_index=True)
+        df = pd.concat([df, pd.DataFrame([dict_optimization_steps])], ignore_index=True)
         if plot:
             fig, ax = opt.generate_plot(lambda x: observe_data(x, function_info))
             plt.show()

@@ -1,0 +1,17 @@
+type: "schwefel_10D"
+lipschitz_constant: 0.009193
+noise_lvl: 0.05
+domain_size: 10
+domain_bounds:
+  - [-500, 500]
+  - [-500, 500]
+  - [-500, 500]
+  - [-500, 500]
+  - [-500, 500]
+  - [-500, 500]
+  - [-500, 500]
+  - [-500, 500]
+  - [-500, 500]
+  - [-500, 500]
+safety_threshold: 0 # safety threshold
+optimum: 1.0

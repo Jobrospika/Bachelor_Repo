@@ -136,7 +136,7 @@ def run_multiple_seeds(slurm_seed=1, num_samples=1000, function_no=20, experimen
                 df[col] = df[col].astype('bool')
 
         # Append results to dataframe
-        df = df._append(dict_results, ignore_index=True)
+        df = pd.concat([df, pd.DataFrame([dict_results])], ignore_index=True)
     
     # Save results to csv (overview) and pickle (detailed)
     df.to_csv(results_dir+f"/experiment_{experiment_no}_{start_seed}_{end_seed}.csv")

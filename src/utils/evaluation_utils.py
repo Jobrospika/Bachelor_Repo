@@ -45,7 +45,7 @@ def evaluate_all(experiment_path, experiment_name):
             res_dict["onb_function"] = i 
             res_dict["safety_violations"] = evaluate_safety_violations(df)
             res_dict["not_started"] = evaluate_not_started(df)
-            res_df = res_df._append(res_dict, ignore_index=True)
+            res_df = pd.concat([res_df, pd.DataFrame([res_dict])], ignore_index=True)
     return res_df
 
 def evaluate_experiment_1(path):
@@ -188,7 +188,7 @@ def evaluate_multiple_performance(experiment_path, experiment_name, function_typ
 
             end = time.time()
             safety_violation = (df["y"]<function_info["safety_threshhold"]).sum()
-            res_df = res_df._append({"function": i, "safety_violations": safety_violation, "not_started": not_started, "final_performance": df["pred_opt"].iloc[-1]}, ignore_index=True)
+            res_df = pd.concat([res_df, pd.DataFrame([{"function": i, "safety_violations": safety_violation, "not_started": not_started, "final_performance": df["pred_opt"].iloc[-1]}])], ignore_index=True)
 
             print(end-start)
     grouped = all_data.groupby('iteration')['pred_opt']

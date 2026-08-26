@@ -1,0 +1,13 @@
+type: "griewank_6d"
+lipschitz_constant: 0.0042
+noise_lvl: 0.004815
+domain_size: 6
+domain_bounds:
+  - [-600, 600]
+  - [-600, 600]
+  - [-600, 600]
+  - [-600, 600]
+  - [-600, 600]
+  - [-600, 600]
+safety_threshold: 0.75
+optimum: 1.0

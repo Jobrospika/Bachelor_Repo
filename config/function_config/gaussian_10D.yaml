@@ -1,6 +1,6 @@
 type: "gaussian_10D"
-lipschitz_constant: 8
-noise_lvl: 0.01
+lipschitz_constant: 1.72
+noise_lvl: 0.000794
 domain_size: 10
 domain_bounds: 
   - [-1, 1]
@@ -13,5 +13,5 @@ domain_bounds:
   - [-1, 1]
   - [-1, 1]
   - [-1, 1]
-safety_threshold: 0.2 # safety threshold
+safety_threshold: 0.0001 # safety threshold
 optimum: 1

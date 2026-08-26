@@ -1,0 +1,17 @@
+type: "trid_10D"
+lipschitz_constant: 0.575383
+noise_lvl: 0.05
+domain_size: 10
+domain_bounds:
+  - [0, 20]
+  - [8, 28]
+  - [14, 34]
+  - [18, 38]
+  - [20, 40]
+  - [20, 40]
+  - [18, 38]
+  - [14, 34]
+  - [8, 28]
+  - [0, 20]
+safety_threshold: 0 # safety threshold
+optimum: 1.0

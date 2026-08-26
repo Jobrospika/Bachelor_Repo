@@ -1,0 +1,15 @@
+type: "cosine8"
+lipschitz_constant: 0.994652
+noise_lvl: 0.05
+domain_size: 8
+domain_bounds:
+  - [-1, 1]
+  - [-1, 1]
+  - [-1, 1]
+  - [-1, 1]
+  - [-1, 1]
+  - [-1, 1]
+  - [-1, 1]
+  - [-1, 1]
+safety_threshold: 0.708333
+optimum: 1.0

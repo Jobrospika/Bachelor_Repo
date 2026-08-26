@@ -1,10 +1,11 @@
 import math
 import time
-import os
 
 import fire
 import gpytorch
 import torch
+import pandas as pd
+import os
 
 from src.algorithms.ucb_losbo import LosGPUCB
 from src.experiments.testfunctions import observe_data
@@ -24,7 +25,7 @@ def experiment(config_path, seed=15):
     """
     seed_everything(seed)
     losbo_config, function_config, kernel_config, config = setup_experiment(config_path, seed=seed, set_lengthscale=True)
-    run_random_experiment(seed=seed,  config=config, function_config=function_config, losbo_config=losbo_config, kernel_config=kernel_config)
+    #run_random_experiment(seed=seed,  config=config, function_config=function_config, losbo_config=losbo_config, kernel_config=kernel_config)
     
     run_experiment(losbo_config, function_config, kernel_config, config)
     
@@ -68,7 +69,17 @@ def run_experiment(losbo_config, function_config, kernel_config, config):
         losbo.add_new_point(x_next, Y)
         regret = torch.cat((regret, losbo.calculate_regret(function_config, lambda x: observe_data(x, function_config, False))),0)
         gp.set_train_data(train_X, train_Y, strict=False)
+
     save_results(config, function_config, losbo_config, losbo.X, losbo.Y, 0, regret, seed = config['seed'])
+
+    # --- DIAGNOSTIC: dump ball-escape logs alongside the normal results ---
+    #escape_path = os.path.join(config['results_path'], "escape_log.csv")
+    #selected_path = os.path.join(config['results_path'], "selected_log.csv")
+    #pd.DataFrame(losbo._escape_log).to_csv(escape_path, index=False)
+    #pd.DataFrame(losbo._selected_log).to_csv(selected_path, index=False)
+    #print(f"Escape log: {len(losbo._escape_log)} entries -> {escape_path}")
+    #print(f"Selected log: {len(losbo._selected_log)} entries -> {selected_path}")
+    # --- end diagnostic ---
     
 def run_random_experiment(seed=1, config=None, function_config=None, losbo_config=None, kernel_config=None):
     """

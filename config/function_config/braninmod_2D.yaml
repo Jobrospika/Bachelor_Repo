@@ -1,9 +1,9 @@
 type: "branin_mod"
 lipschitz_constant: 0.5
-noise_lvl: 0.01 
+noise_lvl: 0.01
 domain_size: 2
 domain_bounds: 
   - [-5, 10]
   - [0, 15]
-safety_threshold: 0 # safety threshold
+safety_threshold: 0.6
 optimum: 1

@@ -1,0 +1,8 @@
+type: "forrester_1D"
+lipschitz_constant: 12.0
+noise_lvl: 0.01
+domain_size: 1
+domain_bounds:
+  - [0, 1]
+safety_threshold: 0 # safety threshold
+optimum: 0.301037

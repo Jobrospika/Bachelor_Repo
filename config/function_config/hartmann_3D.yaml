@@ -1,0 +1,10 @@
+type: "hartmann_3D"
+lipschitz_constant: 10.645417
+noise_lvl: 0.01
+domain_size: 3
+domain_bounds:
+  - [0, 1]
+  - [0, 1]
+  - [0, 1]
+safety_threshold: 0.3 # safety threshold
+optimum: 1.0

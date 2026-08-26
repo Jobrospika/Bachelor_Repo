@@ -1,0 +1,14 @@
+type: "dixon_price_7D"
+lipschitz_constant: 5.395136
+noise_lvl: 0.01
+domain_size: 7
+domain_bounds:
+  - [-5, 5]
+  - [-5, 5]
+  - [-5, 5]
+  - [-5, 5]
+  - [-5, 5]
+  - [-5, 5]
+  - [-5, 5]
+safety_threshold: 0 # safety threshold
+optimum: 1.0

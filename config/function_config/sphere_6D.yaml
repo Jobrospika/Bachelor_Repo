@@ -9,5 +9,5 @@ domain_bounds:
   - [0, 1]
   - [0, 1]
   - [0, 1]
-safety_threshold: 0 # safety threshold
+safety_threshold: 0.3 # safety threshold
 optimum: 1

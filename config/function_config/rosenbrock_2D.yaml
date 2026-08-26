@@ -1,6 +1,6 @@
 type: "rosenbrock2d"
-lipschitz_constant: 5
-noise_lvl: 0.01 
+lipschitz_constant: 13.76
+noise_lvl: 0.027867
 domain_size: 2
 domain_bounds: 
   - [-2, 2]

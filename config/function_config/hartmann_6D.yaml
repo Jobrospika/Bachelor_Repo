@@ -1,6 +1,6 @@
 type: "hartmann_6D"
-lipschitz_constant: 10
-noise_lvl: 0.01
+lipschitz_constant: 8.94
+noise_lvl: 0.013887
 domain_size: 6
 domain_bounds: 
   - [0, 1]
@@ -9,5 +9,5 @@ domain_bounds:
   - [0, 1]
   - [0, 1]
   - [0, 1]
-safety_threshold: 0.3 # safety threshold
+safety_threshold: 0.1 # safety threshold
 optimum: 1

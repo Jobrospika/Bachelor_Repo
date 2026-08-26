@@ -1,0 +1,16 @@
+type: "rastrigin_9D"
+lipschitz_constant: 0.427996
+noise_lvl: 0.05
+domain_size: 9
+domain_bounds:
+  - [-5.12, 5.12]
+  - [-5.12, 5.12]
+  - [-5.12, 5.12]
+  - [-5.12, 5.12]
+  - [-5.12, 5.12]
+  - [-5.12, 5.12]
+  - [-5.12, 5.12]
+  - [-5.12, 5.12]
+  - [-5.12, 5.12]
+safety_threshold: 0.65 # safety threshold
+optimum: 1.0

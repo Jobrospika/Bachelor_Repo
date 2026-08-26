@@ -1,0 +1,12 @@
+type: "sum_squares_5D"
+lipschitz_constant: 0.148324
+noise_lvl: 0.01
+domain_size: 5
+domain_bounds:
+  - [-10, 10]
+  - [-10, 10]
+  - [-10, 10]
+  - [-10, 10]
+  - [-10, 10]
+safety_threshold: 0.2 # safety threshold
+optimum: 1.0
