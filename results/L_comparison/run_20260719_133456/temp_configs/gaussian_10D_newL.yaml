@@ -1,0 +1,27 @@
+domain_bounds:
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+domain_size: 10
+lipschitz_constant: 1.7155277699214138
+noise_lvl: 0.01
+optimum: 1
+safety_threshold: 0.0001
+type: gaussian_10D

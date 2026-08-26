@@ -1,0 +1,11 @@
+domain_bounds:
+- - -2
+  - 2
+- - -1
+  - 1
+domain_size: 2
+lipschitz_constant: 17.042300314218146
+noise_lvl: 0.01
+optimum: 1.0316
+safety_threshold: 0
+type: camel_2D

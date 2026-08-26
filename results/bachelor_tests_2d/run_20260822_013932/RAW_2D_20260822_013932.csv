@@ -1,0 +1,2 @@
+safety_violation,no_opt_possible,final_performance,avg_performance,seed,violation_class,E_label,E_value,L_label,L_factor,kernel,function
+0,False,0.995505690574646,0.995496833935762,0,none,baseline,0.02,baseline,1.1,matern52,rosenbrock_2D

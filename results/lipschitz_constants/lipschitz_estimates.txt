@@ -1,0 +1,183 @@
+file                      name                 type             dim method                     L
+-----------------------------------------------------------------------------------------------
+braninmod_2D.yaml         braninmod_2D.yaml    branin_mod         2 bound               0.445633
+camel_10D.yaml            camel_10D.yaml       camel_10D         10 bound (tight)      17.042300
+camel_2D.yaml             camel_2D.yaml        camel_2D           2 bound (tight)      17.042300
+cosine8.yaml              cosine8.yaml         cosine8            8 exact               0.994652
+dixon_price_7D.yaml       dixon_price_7D.yaml  dixon_price_7D     7 bound               5.395136
+forrester_1D.yaml         forrester_1D.yaml    forrester_1D       1 bound              12.000000
+gaussian_10D.yaml         gaussian_10D.yaml    gaussian_10D      10 exact               1.715528
+griewank_6d.yaml          griewank_6d.yaml     griewank_6d        6 bound               0.004205
+hartmann_3D.yaml          hartmann_3D.yaml     hartmann_3D        3 bound              10.645417
+hartmann_6D.yaml          hartmann_6D.yaml     hartmann_6D        6 bound               8.941770
+rastrigin_9D.yaml         rastrigin_9D.yaml    rastrigin_9D       9 exact               0.427996
+rosenbrock_2D.yaml        rosenbrock_2D.yaml   rosenbrock2d       2 bound              13.763089
+rosenbrock_4D.yaml        rosenbrock_4D.yaml   rosenbrock4d       4 bound               3.277562
+schwefel_10D.yaml         schwefel_10D.yaml    schwefel_10D      10 bound               0.009193
+sphere_2D.yaml            sphere_2D.yaml       sphere2D           2 exact               1.000000
+sphere_4D.yaml            sphere_4D.yaml       sphere4D           4 exact               1.000000
+sphere_6D.yaml            sphere_6D.yaml       sphere6D           6 exact               1.000000
+styblinski_tang_4D.yaml   styblinski_tang_4D.yaml styblinski_tang_4D    4 exact               2.234081
+sum_squares_5D.yaml       sum_squares_5D.yaml  sum_squares_5D     5 exact               0.148324
+trid_10D.yaml             trid_10D.yaml        trid_10D          10 exact               0.575383
+
+[braninmod_2D.yaml]
+  file:   braninmod_2D.yaml
+  type:   branin_mod
+  dim:    2
+  bounds: [(-5, 10), (0, 15)]
+  method: bound
+  L:      0.445633
+
+[camel_10D.yaml]
+  file:   camel_10D.yaml
+  type:   camel_10D
+  dim:    10
+  bounds: [(-2, 2), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1)]
+  method: bound (tight)
+  L:      17.042300
+
+[camel_2D.yaml]
+  file:   camel_2D.yaml
+  type:   camel_2D
+  dim:    2
+  bounds: [(-2, 2), (-1, 1)]
+  method: bound (tight)
+  L:      17.042300
+
+[cosine8.yaml]
+  file:   cosine8.yaml
+  type:   cosine8
+  dim:    8
+  bounds: [(-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1)]
+  method: exact
+  L:      0.994652
+
+[dixon_price_7D.yaml]
+  file:   dixon_price_7D.yaml
+  type:   dixon_price_7D
+  dim:    7
+  bounds: [(-5, 5), (-5, 5), (-5, 5), (-5, 5), (-5, 5), (-5, 5), (-5, 5)]
+  method: bound
+  L:      5.395136
+
+[forrester_1D.yaml]
+  file:   forrester_1D.yaml
+  type:   forrester_1D
+  dim:    1
+  bounds: [(0, 1)]
+  method: bound
+  L:      12.000000
+
+[gaussian_10D.yaml]
+  file:   gaussian_10D.yaml
+  type:   gaussian_10D
+  dim:    10
+  bounds: [(-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1)]
+  method: exact
+  L:      1.715528
+
+[griewank_6d.yaml]
+  file:   griewank_6d.yaml
+  type:   griewank_6d
+  dim:    6
+  bounds: [(-600, 600), (-600, 600), (-600, 600), (-600, 600), (-600, 600), (-600, 600)]
+  method: bound
+  L:      0.004205
+
+[hartmann_3D.yaml]
+  file:   hartmann_3D.yaml
+  type:   hartmann_3D
+  dim:    3
+  bounds: [(0, 1), (0, 1), (0, 1)]
+  method: bound
+  L:      10.645417
+
+[hartmann_6D.yaml]
+  file:   hartmann_6D.yaml
+  type:   hartmann_6D
+  dim:    6
+  bounds: [(0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)]
+  method: bound
+  L:      8.941770
+
+[rastrigin_9D.yaml]
+  file:   rastrigin_9D.yaml
+  type:   rastrigin_9D
+  dim:    9
+  bounds: [(-5.12, 5.12), (-5.12, 5.12), (-5.12, 5.12), (-5.12, 5.12), (-5.12, 5.12), (-5.12, 5.12), (-5.12, 5.12), (-5.12, 5.12), (-5.12, 5.12)]
+  method: exact
+  L:      0.427996
+
+[rosenbrock_2D.yaml]
+  file:   rosenbrock_2D.yaml
+  type:   rosenbrock2d
+  dim:    2
+  bounds: [(-2, 2), (-1, 3)]
+  method: bound
+  L:      13.763089
+
+[rosenbrock_4D.yaml]
+  file:   rosenbrock_4D.yaml
+  type:   rosenbrock4d
+  dim:    4
+  bounds: [(-2, 2), (-2, 2), (-2, 2), (-2, 2)]
+  method: bound
+  L:      3.277562
+
+[schwefel_10D.yaml]
+  file:   schwefel_10D.yaml
+  type:   schwefel_10D
+  dim:    10
+  bounds: [(-500, 500), (-500, 500), (-500, 500), (-500, 500), (-500, 500), (-500, 500), (-500, 500), (-500, 500), (-500, 500), (-500, 500)]
+  method: bound
+  L:      0.009193
+
+[sphere_2D.yaml]
+  file:   sphere_2D.yaml
+  type:   sphere2D
+  dim:    2
+  bounds: [(0, 1), (0, 1)]
+  method: exact
+  L:      1.000000
+
+[sphere_4D.yaml]
+  file:   sphere_4D.yaml
+  type:   sphere4D
+  dim:    4
+  bounds: [(0, 1), (0, 1), (0, 1), (0, 1)]
+  method: exact
+  L:      1.000000
+
+[sphere_6D.yaml]
+  file:   sphere_6D.yaml
+  type:   sphere6D
+  dim:    6
+  bounds: [(0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)]
+  method: exact
+  L:      1.000000
+
+[styblinski_tang_4D.yaml]
+  file:   styblinski_tang_4D.yaml
+  type:   styblinski_tang_4D
+  dim:    4
+  bounds: [(-5, 5), (-5, 5), (-5, 5), (-5, 5)]
+  method: exact
+  L:      2.234081
+
+[sum_squares_5D.yaml]
+  file:   sum_squares_5D.yaml
+  type:   sum_squares_5D
+  dim:    5
+  bounds: [(-10, 10), (-10, 10), (-10, 10), (-10, 10), (-10, 10)]
+  method: exact
+  L:      0.148324
+
+[trid_10D.yaml]
+  file:   trid_10D.yaml
+  type:   trid_10D
+  dim:    10
+  bounds: [(0, 20), (8, 28), (14, 34), (18, 38), (20, 40), (20, 40), (18, 38), (14, 34), (8, 28), (0, 20)]
+  method: exact
+  L:      0.575383
+

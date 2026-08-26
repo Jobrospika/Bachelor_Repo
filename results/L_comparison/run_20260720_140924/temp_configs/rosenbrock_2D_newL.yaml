@@ -1,0 +1,11 @@
+domain_bounds:
+- - -2
+  - 2
+- - -1
+  - 3
+domain_size: 2
+lipschitz_constant: 13.763089123529726
+noise_lvl: 0.01
+optimum: 1
+safety_threshold: 0
+type: rosenbrock2d

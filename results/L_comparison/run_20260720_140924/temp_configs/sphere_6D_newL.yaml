@@ -1,0 +1,19 @@
+domain_bounds:
+- - 0
+  - 1
+- - 0
+  - 1
+- - 0
+  - 1
+- - 0
+  - 1
+- - 0
+  - 1
+- - 0
+  - 1
+domain_size: 6
+lipschitz_constant: 1.0
+noise_lvl: 0.01
+optimum: 1
+safety_threshold: 0.3
+type: sphere6D

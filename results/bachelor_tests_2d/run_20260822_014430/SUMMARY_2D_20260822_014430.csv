@@ -1,0 +1,5 @@
+E_label,E_value,L_label,L_factor,kernel,function,n_runs,pct_no_violation,pct_minor,pct_major,pct_no_opt,mean_final_perf,mean_avg_perf
+baseline,0.02,baseline,1.1,matern52,branin_2D,10,100.0,0.0,0.0,0.0,0.996,0.979
+baseline,0.02,baseline,1.1,matern52,camel_2D,10,100.0,0.0,0.0,30.0,0.7225,0.7221
+baseline,0.02,baseline,1.1,matern52,rosenbrock_2D,10,100.0,0.0,0.0,10.0,0.8189,0.8187
+baseline,0.02,baseline,1.1,matern52,sphere_2D,10,100.0,0.0,0.0,0.0,0.9856,0.9786

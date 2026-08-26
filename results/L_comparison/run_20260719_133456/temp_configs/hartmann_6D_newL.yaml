@@ -1,0 +1,19 @@
+domain_bounds:
+- - 0
+  - 1
+- - 0
+  - 1
+- - 0
+  - 1
+- - 0
+  - 1
+- - 0
+  - 1
+- - 0
+  - 1
+domain_size: 6
+lipschitz_constant: 8.94177025318627
+noise_lvl: 0.01
+optimum: 1
+safety_threshold: 0.3
+type: hartmann_6D

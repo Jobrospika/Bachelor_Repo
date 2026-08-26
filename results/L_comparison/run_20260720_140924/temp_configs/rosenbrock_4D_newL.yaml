@@ -1,0 +1,15 @@
+domain_bounds:
+- - -2
+  - 2
+- - -2
+  - 2
+- - -2
+  - 2
+- - -2
+  - 2
+domain_size: 4
+lipschitz_constant: 3.2775618987289925
+noise_lvl: 0.001
+optimum: 1
+safety_threshold: 0.6
+type: rosenbrock4d

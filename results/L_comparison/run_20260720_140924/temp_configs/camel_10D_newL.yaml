@@ -1,0 +1,27 @@
+domain_bounds:
+- - -2
+  - 2
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+domain_size: 10
+lipschitz_constant: 17.042300314218146
+noise_lvl: 0.05
+optimum: 1.0316
+safety_threshold: 0
+type: camel_10D

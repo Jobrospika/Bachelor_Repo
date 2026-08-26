@@ -1,0 +1,2 @@
+E_label,E_value,L_label,L_factor,kernel,function,n_runs,pct_no_violation,pct_minor,pct_major,pct_no_opt,mean_final_perf,mean_avg_perf
+baseline,0.02,baseline,1.1,matern52,rosenbrock_2D,1,100.0,0.0,0.0,0.0,0.9955,0.9955

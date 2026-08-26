@@ -1,0 +1,11 @@
+domain_bounds:
+- - -5
+  - 10
+- - 0
+  - 15
+domain_size: 2
+lipschitz_constant: 0.4456325778841921
+noise_lvl: 0.01
+optimum: 1
+safety_threshold: 0.6
+type: branin_mod

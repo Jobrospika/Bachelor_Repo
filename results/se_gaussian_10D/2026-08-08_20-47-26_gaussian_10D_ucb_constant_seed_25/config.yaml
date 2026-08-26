@@ -1,0 +1,54 @@
+experiment_name: se_gaussian_10D
+function_config: gaussian_10D
+kernel_config: se
+losbo_config: ucb_constant
+results_path: results/se_gaussian_10D/2026-08-08_20-47-26_gaussian_10D_ucb_constant_seed_25
+seed: 25
+E: 0.01
+acqf: ucb
+beta:
+  type: constant
+  value: 2
+initial_safe_points: 1
+max_iterations: 100
+type: ucblosbo
+ard: false
+learn_hyperparameters: false
+lengthscale:
+  prior_mean: 0.5813953488372093
+  prior_std: 1
+noise:
+  prior_mean: 0.01
+  prior_std: 1
+outputscale:
+  prior_mean: 1
+  prior_std: 1
+prior_mean: 0.5
+type: se
+domain_bounds:
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+- - -1
+  - 1
+domain_size: 10
+lipschitz_constant: 1.72
+noise_lvl: 0.01
+optimum: 1
+safety_threshold: 0.0001
+type: gaussian_10D
